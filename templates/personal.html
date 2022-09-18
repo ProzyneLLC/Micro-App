@@ -1,0 +1,77 @@
+{%extends 'base.html' %}
+
+{% block title %}SHOW USERNAME HERE{% endblock %}
+
+{% block style %}
+    body{
+        background:url({{imageBackground}}) no-repeat fixed;
+        background-size: cover; 
+    }
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex flex-row justify-content-center">
+    <div class="col-md-8 vh-100" style="background-color: rgba(0, 0, 0, 0.6)">
+        <div class="text-center">
+            <form method = 'POST'>
+                <div class="pt-2 pb-2">
+                    <div class="thumb-lg member-thumb mx-auto">
+                        <img src="{{imageProfile}}"  width="120" height ="120" alt="profile-image">
+                    </div>
+
+                    <div class="text-white">
+                        <h4 class="text-uppercase">@{{userName}}</h4>
+                    </div>
+                    <form method = 'POST'>
+                        {% if follow== True %}
+                            <button type="submit" class="btn btn-primary mt-3 btn-rounded" name='unfollow' value= '1'>Unfollow</button>
+                            <button type="button" class="btn btn-primary ms-3 mt-3 btn-rounded">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                                </svg>
+                            </button>
+                        {% else %}
+                            <button type="submit" class="btn btn-primary mt-3 btn-rounded" name='follow' value= '1' >Follow</button>
+                            <button type="submit" class="btn btn-primary ms-3 mt-3 btn-rounded" name='notification' value= '1' >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                    <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                                </svg>
+                            </button>
+                        {% endif %}
+                    
+                    <div class="mt-4d-flex flex-column">
+                        <div class="d-flex justify-content-center">
+                            <div class="mt-3 text-white">
+                                <h4>{{following}}</h4>
+                                <p class="mb-0 text-white">Following</p>
+                            </div>
+
+                            <div class="mt-3 ms-3 text-white">
+                                <h4>{{followers}}</h4>
+                                <p class="mb-0 text-white">Followers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="list-group list-group-flush list-unstyled" style="background-color: rgba(255, 255, 255, 0.1)">
+                        {% for i in linklist%}
+                            <form method = 'POST'>
+                                <li class="list-group-item bg-transparent">
+                                    <button class="w-100 d-flex btn btn-dark" name='LinkButton' value={{i[2]}}>
+                                        <img src="{{i[5]}}" width="64" height ="64" class="rounded"></img>
+                                            <div class="w-100">
+                                            <h3 class="mt-3 text-white">{{i[3]}}</h3>
+                                            </div>
+                                    </button>
+                                </li>
+                            </form>
+                        {% endfor %}
+                    <ul/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
