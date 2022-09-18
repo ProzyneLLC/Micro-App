@@ -1,0 +1,30 @@
+{%extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block style %}
+    body {font-family: "Raleway", sans-serif}
+    body {height: 50%}
+    body{
+        background-image: url('https://www.solidbackgrounds.com/images/7680x4320/7680x4320-black-solid-color-background.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+{% endblock %}
+
+{% block content %}
+    <div class="bgimg  w3-animate-opacity w3-text-white">
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-center w3-animate-top">ABOUT LNKD</h1>
+            <hr class="w3-border-grey" style="margin:auto;width:40%">
+            <p class="w3-large w3-center">USERS OF THE SOCIAL MEDIA PLATFORM WISH TO SHARE MULTIPLE CONTENTS VIA ONE LINK, INSTEAD OF LINKING TO EACH OF THESE SITES INDIVIDUALLY IN THE SOCIAL MEDIA BIO. TO SOLVE THIS PROBLEM, OUR GOAL IS TO CREATE A PRODUCT THAT IS A WEBSITE THAT GENERATES A UNIQUE URL THAT HOUSES ALL OF THE USERS' ALL-IMPORTANT LINKS THAT THE USER WANTS TO SHARE.
+        </p>
+        </div>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large w3-text-white">
+        <a href="/privacy" target="_blank">Provicy Policy</a>
+    </div>
+
+{% endblock %}
